@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automated Data Processing Engine — TU Wien</title>
+    <script>
+      window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[','\\]']] } };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Icons: Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <header class="global-header">
+      <img class="tu-logo" alt="TU Wien" src="https://www.tuwien.at/greenchem/wp-content/uploads/2022/03/tu-signet-cmyk-2-1600x1067.png" />
+      <div class="header-right">
+        <span class="brand">TU Wien</span>
+        <nav class="dot-nav" aria-label="Slide navigation"></nav>
+      </div>
+    </header>
+
+    <main id="slides" class="slides">
+      <!-- SLIDE 1: Title -->
+      <section class="slide slide-hero" data-title="Title">
+        <div class="slide-inner">
+          <h1>Automated Data Processing Engine: Transforming Laboratory Analysis</h1>
+          <p class="subtitle">From Raw Spectroscopy Data to Actionable Insights</p>
+          <div class="hero-visual">
+            <div class="hero-bg"></div>
+            <canvas id="heroCanvas" aria-hidden="true"></canvas>
+          </div>
+          <div class="logo-strip" aria-label="Partner logos">
+            <img src="./logo/Picture1.png" alt="Partner logo 1" />
+            <img src="./logo/Picture2.png" alt="Partner logo 2" />
+            <img src="./logo/Picture3.png" alt="Partner logo 3" />
+            <img src="./logo/Picture4.png" alt="Partner logo 4" />
+            <img src="./logo/Picture5.png" alt="Partner logo 5" />
+            <img src="./logo/Picture6.png" alt="Partner logo 6" />
+            <img src="./logo/Picture7.png" alt="Partner logo 7" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: Challenge -->
+      <section class="slide" data-title="Challenge">
+        <div class="slide-inner two-cols">
+          <div>
+            <h2>Current Laboratory Data Processing Challenges</h2>
+            <ul class="bullets">
+              <li><i class="ri-time-line"></i> Manual data analysis is time-consuming and error-prone</li>
+              <li><i class="ri-user-smile-line"></i> Inconsistent results between different analysts</li>
+              <li><i class="ri-database-2-line"></i> Difficulty in handling large datasets from multiple experiments</li>
+              <li><i class="ri-flask-line"></i> Need for specialized chemistry knowledge for data interpretation</li>
+            </ul>
+          </div>
+          <div class="visual-card">
+            <div class="before-after">
+              <div class="card before">
+                <span><i class="ri-hand-coin-line"></i> Manual</span>
+                <div class="flow nodes">
+                  <div class="node"><i class="ri-file-csv-line"></i><span>Raw CSV</span></div>
+                  <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                  <div class="node"><i class="ri-user-3-line"></i><span>Analyst</span></div>
+                  <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                  <div class="node"><i class="ri-bar-chart-line"></i><span>Reports</span></div>
+                </div>
+                <div class="hint"><i class="ri-time-line"></i> Bottlenecks: manual steps, variability</div>
+              </div>
+              <div class="card after">
+                <span><i class="ri-robot-line"></i> Automated</span>
+                <div class="flow nodes">
+                  <div class="node"><i class="ri-file-csv-line"></i><span>Raw CSV</span></div>
+                  <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                  <div class="node"><i class="ri-cpu-line"></i><span>Engine</span></div>
+                  <div class="arrow"><i class="ri-arrow-right-line"></i></div>
+                  <div class="node"><i class="ri-bar-chart-2-line"></i><span>Insights</span></div>
+                </div>
+                <div class="hint success"><i class="ri-shield-check-line"></i> Benefits: speed, consistency, scale</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Solution Overview -->
+      <section class="slide" data-title="Overview">
+        <div class="slide-inner">
+          <h2>Our Automated Processing Engine: Complete Workflow</h2>
+          <p class="lede">End-to-end automation from raw data to final results. Three main processing stages with intelligent analysis.</p>
+          <div class="workflow">
+            <div class="stage input">
+              <i class="ri-file-csv-line"></i>
+              <h3>Input</h3>
+              <p>CSV files, parameters</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="stage processing">
+              <i class="ri-cpu-line"></i>
+              <h3>Processing</h3>
+              <p>Calibration, Conversion, Analytics</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="stage output">
+              <i class="ri-bar-chart-2-line"></i>
+              <h3>Output</h3>
+              <p>Charts, KPIs, Reports</p>
+            </div>
+          </div>
+          <p class="lede">Visuals are faithfully recreated from your optimization dataset as schematic workflow elements.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: UV-Vis Simplified -->
+      <section class="slide" data-title="UV-Vis">
+        <div class="slide-inner two-cols">
+          <div>
+            <h2>Understanding the Science: UV-Vis Spectroscopy Simplified</h2>
+            <ul class="bullets">
+              <li><strong>What it is:</strong> Light absorption measurement technique</li>
+              <li><strong>Why it matters:</strong> Tells us concentration of substances in solution</li>
+              <li><strong>Analogy:</strong> Like measuring how much sunlight passes through colored glass</li>
+              <li><strong>Our focus:</strong> Methylene Blue concentration analysis</li>
+            </ul>
+          </div>
+          <div class="uvvis-diagram">
+            <div class="source">Light Source</div>
+            <div class="arrow">→</div>
+            <div class="sample">Sample</div>
+            <div class="arrow">→</div>
+            <div class="detector">Detector</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Inputs -->
+      <section class="slide" data-title="Inputs">
+        <div class="slide-inner">
+          <h2>Data Inputs: Raw Laboratory Measurements</h2>
+          <div class="cards">
+            <div class="card">
+              <i class="ri-slideshow-2-line"></i>
+              <h3>Calibration Data</h3>
+              <p>Known concentrations for reference</p>
+            </div>
+            <div class="card">
+              <i class="ri-timer-flash-line"></i>
+              <h3>Experiment Data</h3>
+              <p>Time-series spectra from experiments</p>
+            </div>
+            <div class="card">
+              <i class="ri-settings-3-line"></i>
+              <h3>Parameters</h3>
+              <p>Voltage, LED power, etc.</p>
+            </div>
+            <div class="card">
+              <i class="ri-file-csv-line"></i>
+              <h3>Format</h3>
+              <p>Standard CSV files (easy to work with)</p>
+            </div>
+          </div>
+          <div class="code-grid">
+            <div>
+              <h4>Calibration CSV (example)</h4>
+              <pre class="code">wavelength_nm,absorbance
+500,0.04
+...
+671,0.19
+...
+800,0.02</pre>
+            </div>
+            <div>
+              <h4>Experiment CSV (example)</h4>
+              <pre class="code">wavelength_nm,absorbance
+671,0.98
+671,0.96
+...
+671,0.36</pre>
+            </div>
+            <div>
+              <h4>Parameters CSV (example)</h4>
+              <pre class="code">parameter,value,units
+LED_wavelength,525,nm
+incident_power,3.16,W
+illumination_time,57600,s
+MB_reacted,1.35e-6,mol</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Calibration -->
+      <section class="slide" data-title="Calibration">
+        <div class="slide-inner two-cols">
+          <div>
+            <h2>Building the Translation Key: From Light Absorption to Concentration</h2>
+            <p class="lede">Every UV‑Vis spectrum gives absorbance vs wavelength. We translate absorbance into real concentrations by building a robust calibration curve.</p>
+
+            <div class="chip-row">
+              <span class="chip"><i class="ri-focus-2-line"></i> Peak detected near 671 nm</span>
+              <span class="chip"><i class="ri-function-line"></i> y = 0.10944x + 0.03158</span>
+              <span class="chip"><i class="ri-award-line"></i> R² = 0.9964</span>
+            </div>
+
+            <h4 class="section-title">The Real Scientific Process</h4>
+            <ol class="num-list">
+              <li>Prepare reference standards: known MB concentrations (0.5, 1, 2, 5, 10, 15 ppm)</li>
+              <li>UV‑Vis measurement: full absorbance vs wavelength for each standard</li>
+              <li>Peak selection: automatically focus on the maximum (≈671 nm)</li>
+              <li>Linear relationship: fit concentration vs absorbance</li>
+              <li>Validation: R² ≥ 0.995 for reliable predictions</li>
+            </ol>
+
+            <h4 class="section-title">AI Intelligence Added</h4>
+            <ul class="icon-list">
+              <li><i class="ri-focus-2-line"></i> Automatic peak detection with wavelength locking across experiments</li>
+              <li><i class="ri-shield-check-line"></i> Linearity QC and outlier flagging</li>
+              <li><i class="ri-refresh-line"></i> Real‑time recalibration if solution characteristics change</li>
+            </ul>
+
+            <h4 class="section-title">Business Value</h4>
+            <ul class="icon-list">
+              <li><i class="ri-checkbox-circle-line"></i> Precision: R² 0.9964 in your dataset</li>
+              <li><i class="ri-equalizer-line"></i> Consistency: single standard applied across runs</li>
+              <li><i class="ri-rocket-2-line"></i> Scalability: one calibration processes hundreds of samples</li>
+            </ul>
+          </div>
+          <div class="chart-stack">
+            <div class="chart-card">
+              <canvas id="spectrum15ppmChart" aria-label="15 ppm Methylene Blue Spectrum"></canvas>
+          </div>
+          <div class="chart-card">
+            <canvas id="calibrationChart" aria-label="Calibration Chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Conversion (refreshed like Slide 6) -->
+      <section class="slide" data-title="Conversion">
+        <div class="slide-inner two-cols">
+          <div>
+            <h2>From UV-Vis Spectra to Concentration Profiles</h2>
+            <p class="lede">For every time point in our experiment (0, 30, 60, 90, 120 minutes), we get a UV‑Vis spectrum. System instantly converts each spectrum into a concentration value, building the degradation curve in real‑time.</p>
+
+            <h4 class="section-title">What Actually Happens:</h4>
+            <ol class="num-list">
+              <li><strong>Time-Series UV-Vis Data:</strong> At each time point (0, 30, 60, 90, 120 min), take UV‑Vis spectrum</li>
+              <li><strong>Peak Absorbance Extraction:</strong> System finds the maximum absorbance value from each spectrum (same wavelength used in calibration)</li>
+              <li><strong>Calibration Application:</strong> Apply the calibration equation to convert absorbance to concentration</li>
+              <li><strong>Concentration vs Time Plot:</strong> Build the degradation curve automatically</li>
+            </ol>
+          </div>
+          <div class="chart-card">
+            <canvas id="concTimeChartSlide7" aria-label="Concentration vs Time"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Kinetics & QY -->
+      <section class="slide" data-title="Kinetics">
+        <div class="slide-inner two-cols">
+          <div class="left-kinetics">
+            <div class="chart-card">
+              <h3>Kinetic Analysis (ln(C) vs Time)</h3>
+              <canvas id="kineticsChart"></canvas>
+              <div class="eq-box">
+                <div><span class="label">Rate constant k</span><span class="value" id="kVal">0.00838 min⁻¹</span></div>
+                <div><span class="label">R²</span><span class="value" id="r2Val">—</span></div>
+                <div><span class="label">Model</span><span class="value">First‑order</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Apparent Quantum Yield (AQY)</h3>
+            <div class="formula-math">\[\mathrm{AQY} = \frac{n_{\mathrm{MB}}}{n_{\mathrm{incident\ photons}}} \times 100\%\]</div>
+            <div class="formula-math">\[n_{\mathrm{incident\ photons}} = \frac{E_{\mathrm{total}}}{E_{\mathrm{photon}} \cdot N_A} = \frac{t \cdot P_{\mathrm{LED}} \cdot \lambda}{N_A \cdot c \cdot h}\]</div>
+            <div class="inputs">
+              <label>MB reacted (mol)<input id="mbMol" type="number" step="0.00000001" value="0.00000135" /></label>
+              <label>Illumination time (s)<input id="timeSec" type="number" value="57600" /></label>
+              <label>Total incident power (W)<input id="powerW" type="number" step="0.01" value="3.16" /></label>
+              <label>Wavelength (nm)<input id="lambdaNm" type="number" value="525" /></label>
+            </div>
+            <div class="aqy-result">AQY: <strong id="aqyVal">—</strong></div>
+            <small>Note: Requires absorption fraction; default is 30% for illustration.</small>
+
+            <h4 class="section-title">Parameter Table</h4>
+            <table class="stat-table">
+              <tr>
+                <td><strong>Parameter</strong></td>
+                <td><strong>Symbol</strong></td>
+                <td><strong>Value</strong></td>
+                <td><strong>Unit</strong></td>
+              </tr>
+              <tr>
+                <td>Concentration Change</td>
+                <td><em>n</em><sub>MB</sub></td>
+                <td><span id="mbMolDisp">—</span></td>
+                <td>mol</td>
+              </tr>
+              <tr>
+                <td>Illumination Time</td>
+                <td><em>t</em></td>
+                <td><span id="timeSecDisp">—</span></td>
+                <td>s</td>
+              </tr>
+              <tr>
+                <td>LED Power (Incident)</td>
+                <td><em>P</em><sub>LED</sub></td>
+                <td><span id="powerWDisp">—</span></td>
+                <td>W (J/s)</td>
+              </tr>
+              <tr>
+                <td>LED Wavelength</td>
+                <td>λ</td>
+                <td><span id="lambdaNmDisp">—</span></td>
+                <td>m</td>
+              </tr>
+              <tr>
+                <td>Avogadro's Constant</td>
+                <td><em>N</em><sub>A</sub></td>
+                <td>6.022 × 10<sup>23</sup></td>
+                <td>mol<sup>−1</sup></td>
+              </tr>
+              <tr>
+                <td>Planck's Constant</td>
+                <td><em>h</em></td>
+                <td>6.626 × 10<sup>−34</sup></td>
+                <td>J·s</td>
+              </tr>
+              <tr>
+                <td>Speed of Light</td>
+                <td><em>c</em></td>
+                <td>3.0 × 10<sup>8</sup></td>
+                <td>m/s</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="meta-row">
+          <div class="info-card">
+            <h4>Performance Summary</h4>
+            <ul>
+              <li>System: <strong>AuNPs + g‑C₃N₄</strong></li>
+              <li>Reaction Rate: <strong>0.00838 min⁻¹</strong></li>
+              <li>Performance Grade: <span class="grade">B+</span></li>
+              <li>Improvement vs baseline: <strong>+40%</strong></li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>AI Insights</h4>
+            <ul>
+              <li>First‑order kinetics confirmed (R² &gt; 0.95)</li>
+              <li>Quantum yield within expected Au‑catalyst range</li>
+              <li>Recommendation: Test higher Au loading</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>Quality Validation</h4>
+            <ul>
+              <li>✅ Kinetic model validity confirmed</li>
+              <li>✅ Mass balance closure: 98.5%</li>
+              <li>✅ Reproducibility: ±5% between runs</li>
+              <li>✅ Literature comparison consistent</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Dashboard -->
+      <section class="slide" data-title="Dashboard">
+        <div class="slide-inner dashboard">
+          <div class="quad q1">
+            <h3>Experiment Summary</h3>
+            <ul>
+              <li>System: Au-gC₃N₄ Photocatalyst</li>
+              <li>Conditions: 15 mg/L MB, 4 mL AuNPs, LED 525 nm</li>
+              <li>Status: Analysis Complete ✅</li>
+              <li>Overall Score: 8.2/10</li>
+            </ul>
+          </div>
+          <div class="quad q2">
+            <h3>Key Performance Metrics</h3>
+            <div class="kpi-grid">
+              <div class="kpi-block">
+                <div class="kpi-title">Reaction Rate</div>
+                <div class="gauge" aria-label="k gauge">
+                  <div class="gauge-dial"></div>
+                  <div id="kGaugeNeedle" class="gauge-needle" style="--angle:-60deg"></div>
+                </div>
+                <div class="kpi-val"><span id="kGaugeVal">0.00838</span> min⁻¹</div>
+              </div>
+              <div class="kpi-block">
+                <div class="kpi-title">Quantum Yield</div>
+                <div class="aqy-bar"><div id="aqyBarFill" class="fill" style="width: 0%"></div></div>
+                <div class="kpi-val" id="aqyVal2">—</div>
+              </div>
+              <div class="kpi-block">
+                <div class="kpi-title">Degradation</div>
+                <div id="degCircle" class="progress-circle" style="--p:63.4"><span>63.4%</span></div>
+                <div class="kpi-val">in 135 min</div>
+              </div>
+              <div class="kpi-block">
+                <div class="kpi-title">Reproducibility</div>
+                <div class="stars" aria-label="reliability">
+                  <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-line"></i>
+                </div>
+                <div class="kpi-val">±5%</div>
+              </div>
+            </div>
+          </div>
+          <div class="quad q3">
+            <h3>Data Quality & Validation</h3>
+            <ul>
+              <li>Calibration Quality: R² = 0.9964 ✅</li>
+              <li>Kinetic Fit: Linear correlation confirmed ✅</li>
+              <li>Mass Balance: 98.5% closure ✅</li>
+              <li>Statistical Significance: p &lt; 0.001 ✅</li>
+            </ul>
+          </div>
+          <div class="quad q4">
+            <h3>AI Optimization Insights</h3>
+            <ul>
+              <li>Performance Ranking: #3/12</li>
+              <li>Improvement Potential: Medium-High</li>
+              <li>Next Recommendation: Test 2% Au loading</li>
+              <li>Expected Improvement: +15–25% rate increase</li>
+            </ul>
+          </div>
+          <div class="center-panel">
+            <div class="flowline">
+              <span class="pill">UV‑Vis</span>
+              <span class="arrow">→</span>
+              <span class="pill">Calibration</span>
+              <span class="arrow">→</span>
+              <span class="pill">Concentration</span>
+              <span class="arrow">→</span>
+              <span class="pill">Kinetics</span>
+              <span class="arrow">→</span>
+              <span class="pill">QY</span>
+            </div>
+            <div class="systemline">
+              <span><i class="ri-pulse-line"></i> 15 experiments analyzed today</span>
+              <span><i class="ri-checkbox-circle-line"></i> System Health: All modules operating normally</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    </main>
+
+    <footer class="global-footer">© TU Wien — Automated Data Processing Engine</footer>
+
+    <!-- Chart.js annotation plugin for peak marker -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <!-- Chart.js datalabels plugin for point labels on Slide 7 chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
